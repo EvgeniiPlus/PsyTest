@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Тесты</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Тестирование</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+              <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+            </div>
+            <div>
+              <h4 class="fs-3" style="text-align: center">Диагностика уровня готовности к профессиональной самореализации</h4>
+              <p style="text-align: justify">
+                  Профессиональная самореализация педагога – персональная стратегия профессиональной деятельности
+                  педагога, совершенствования его личностных качеств, развития профессиональных компетенций,
+                  выстраиваемая на основе самопознания, самоактуализации, самоидентификации, самопроектирования,
+                  самоорганизации и самопрезентации.
+              </p>
+              <a href="/test" class="btn btn-primary">
+                Пройти тест
+              </a>
+            </div>
+          </div>
+
+        </div>
+    </div>
+{% endblock %}

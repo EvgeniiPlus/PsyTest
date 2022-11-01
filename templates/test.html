@@ -1,0 +1,589 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Тест</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Диагностика уровня готовности к профессиональной самореализации</h2>
+          <p class="lead">
+              <i>Профессиональная самореализация педагога – персональная стратегия профессиональной деятельности педагога,
+              совершенствования его личностных качеств, развития профессиональных компетенций, выстраиваемая на основе
+                  самопознания, самоактуализации, самоидентификации, самопроектирования, самоорганизации и самопрезентации.</i>
+              <br><br>
+              <b>Оцените себя по 10-балльной шкале по каждому показателю и определите уровень сформированности у себя
+                  готовности к профессиональной самореализации.</b>
+          </p>
+        </div>
+
+        <div class="row g-5">
+
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-primary">Справочно</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div style="padding-right: 20px">
+                  <h6 class="my-0" style="text-align: justify">Наличие качества, умения, навыка в большой степени</h6>
+                </div>
+
+                <span class="text-muted" style="text-align: center">9–10 баллов</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div  style="padding-right: 20px">
+                  <h6 class="my-0"  style="text-align: justify">Обладание необходимыми качествами, умениями и навыками, но не в достаточной степени</h6>
+                </div>
+                <span class="text-muted" style="text-align: center">6-8 баллов</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div style="padding-right: 20px">
+                  <h6 class="my-0"  style="text-align: justify">Качества и умения проявляются или развиты слабо</h6>
+                </div>
+                <span class="text-muted" style="text-align: center">4-5 баллов</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div style="padding-right: 20px">
+                  <h6 class="my-0"  style="text-align: justify">Качества и умения практически не развиты</h6>
+                </div>
+                <span class="text-muted" style="text-align: center">1-3 баллов</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div style="padding-right: 20px">
+                  <h6 class="my-0"  style="text-align: justify">Названные качества и умения отсутствуют, вы не считаете необходимым их развивать</h6>
+                </div>
+                <span class="text-muted" style="text-align: center">0 баллов</span>
+                </li>
+
+            </ul>
+          </div>
+
+          <div class="col-md-7 col-lg-8">
+
+            <form class="needs-validation" novalidate="">
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <h4 class="mb-3">1</h4>
+                        </li>
+
+                    {% set q3 = questions['q3'] %}
+                    {% for question in q3 %}
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">{{ question }}</label>
+                            </div>
+                            <select class="form-select" name="1-1" required style="width: 128px; height: 40px">
+                                <option disabled>Оцените...</option>
+                                {% for i in range(10, -1, -1) %}
+                                    <option>{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">
+                                Пожалуйста, проверьте введенную информацию
+                            </div>
+                        </li>
+                    {% endfor %}
+                    </ul>
+
+
+
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <h4 class="mb-3">1. Ценностно-смысловой компонент</h4>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Осознание личной значимости профессиональной самореализации в педагогической деятельности</label>
+                        </div>
+                        <select class="form-select" name="1-1" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                     <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Осознание общественной значимости профессиональной самореализации в педагогической деятельности</label>
+                        </div>
+                        <select class="form-select" name="1-2" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Чувство ответственности</label>
+                        </div>
+                        <select class="form-select" name="1-3" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">
+                                Наличие стойких профессиональных ценностей (самореализация в профессии, самореализация
+                                обучающегося в процессе образования, личность обучающегося, знания предмета, индивидуальность
+                                обучающегося, инновации в образовании, карьера, научно-исследовательская работа, передача
+                                собственного опыта коллегам и др.)
+                            </label>
+                        </div>
+                        <select class="form-select" name="1-4" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">
+                                Наличие стойкого смысла в профессии
+                            </label>
+                        </div>
+                        <select class="form-select" name="1-5" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <h4 class="mb-3">2. Психолого-регулятивный компонент</h4>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Наличие стойких познавательных интересов в области профессиональной самореализации
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-1" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Стремление получить высокую оценку своей деятельности в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-2" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в профессиональной самореализации (ПС)
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-3" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в самопознании
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-4" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в самоактуализации в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-5" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в самоидентификации в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-6" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в самопроектировании в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-7" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в саморазвитии в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-8" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Потребность в самопрезентации в профессии
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-9" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Ранговое место ПС среди 10 наиболее значимых для вас видов деятельности
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-10" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Наличие стойкой установки и направленности на профессиональную самореализацию
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-11" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Уровень волевых качеств
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-12" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Целеустремленность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-13" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Дисциплинированность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-14" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Инициативность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-15" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Настойчивость
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-16" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Организованность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-17" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Решительность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-18" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Самостоятельность
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-19" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Смелость
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-20" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Уверенность в своих силах
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-21" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">
+                            Наличие стойких познавательных интересов в области профессиональной самореализации
+                        </label>
+                        </div>
+                        <select class="form-select" name="2-22" required style="width: 128px; height: 40px">
+                            <option disabled>Оцените...</option>
+                            {% for i in range(10, -1, -1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста, проверьте введенную информацию
+                        </div>
+                    </li>
+                </ul>
+
+
+            </form>
+          </div>
+
+              <hr class="my-4">
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                  <label class="form-check-label" for="credit">Credit card</label>
+                </div>
+                <div class="form-check">
+                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                  <label class="form-check-label" for="debit">Debit card</label>
+                </div>
+                <div class="form-check">
+                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+{% endblock %}
