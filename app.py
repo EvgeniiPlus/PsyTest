@@ -54,6 +54,11 @@ def test():
             questions_dict = json.load(f)
         return render_template('test.html', questions=questions_dict)
 
+@app.route('/biblio_list')
+def biblio_list():
+
+    return render_template('bibliographic_list.html')
+
 
 @app.route('/info')
 def info():

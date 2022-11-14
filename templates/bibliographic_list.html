@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Тест</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-7 col-lg-8">
+
+            <form class="needs-validation" novalidate="" method="post">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Выберите тип издания</span>
+                </h4>
+                <div class="my-3">
+                            <div class="form-check">
+                                <input id="man" name="sex" type="radio" class="form-check-input" checked="" required="" value="Мужской">
+                                <label class="form-check-label">Книга с одним автором</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <label class="form-check-label">Книга с несколькими авторами</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <label class="form-check-label">Статья из журнала с одним автором</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <label class="form-check-label">Статья из журнала с несколькими авторами</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <label class="form-check-label">Электронный источник</label>
+                            </div>
+
+                </div>
+
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Фамилия автора</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="Surname" type="text">
+                            </div>
+                        </div>
+                    </li>
+                     <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Инициалы автора</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="IO" type="text">
+                            </div>
+                        </div>
+                    </li>
+                     <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Название книги</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="Title" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Город публикации</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="City" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Издательство</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="Publishing" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Год издания</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="Year" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Количество страниц</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="Pages" type="text">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" onclick="Generate()">Сгенереровать</button> <br><br>
+                <p style="color:green" id="Result"></p>
+            </form>
+
+            <script>
+                function Generate()
+                {
+                    var surname = document.getElementById("Surname").value;
+                    var io = document.getElementById("IO").value;
+                    var title = document.getElementById("Title").value;
+                    var city = document.getElementById("City").value;
+                    var publishing = document.getElementById("Publishing").value;
+                    var year = document.getElementById("Year").value;
+                    var pages = document.getElementById("Pages").value;
+
+                    document.getElementById("Result").innerHTML = surname + ", " + io + " " + title + " / " + io + " " + surname + ". – " + city + " : " + publishing + ", " + year + ". – " + pages + " с.";
+                }
+            </script>
+        </div>
+
+    </div>
+{% endblock %}
