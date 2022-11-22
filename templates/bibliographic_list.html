@@ -8,82 +8,209 @@
     <div class="container">
         <div class="col-md-7 col-lg-8">
 
-            <form class="needs-validation" novalidate="" method="post">
+            <form id="Type_pub" class="needs-validation" novalidate="" method="post">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-primary">Выберите тип издания</span>
                 </h4>
                 <div class="my-3">
                             <div class="form-check">
-                                <input id="man" name="sex" type="radio" class="form-check-input" checked="" required="" value="Мужской">
+                                <input name="sel_pub" type="radio" class="form-check-input" onchange="ShowA(this)" checked>
                                 <label class="form-check-label">Книга с одним автором</label>
                             </div>
                             <div class="form-check">
-                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <input name="sel_pub" type="radio" class="form-check-input" onchange="ShowB(this)">
                                 <label class="form-check-label">Книга с несколькими авторами</label>
                             </div>
                             <div class="form-check">
-                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <input name="sel_pub" type="radio" class="form-check-input" onchange="ShowC(this)">
                                 <label class="form-check-label">Статья из журнала с одним автором</label>
                             </div>
                             <div class="form-check">
-                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <input name="sel_pub" type="radio" class="form-check-input" onchange="ShowD(this)">
                                 <label class="form-check-label">Статья из журнала с несколькими авторами</label>
                             </div>
                             <div class="form-check">
-                                <input id="woman" name="sex" type="radio" class="form-check-input" required=""  value="Женский">
+                                <input name="sel_pub" type="radio" class="form-check-input" onchange="ShowE(this)">
                                 <label class="form-check-label">Электронный источник</label>
                             </div>
 
                 </div>
+            </form>
 
+            <form id="A" class="needs-validation" >
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Автор (например, П.П. Петров)</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="FIO" type="text">
+                        </div>
+                    </div>
+                </li>
+                 <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Название книги</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="Title" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Город публикации</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="City" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Издательство</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="Publishing" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Год издания</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="Year" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Количество страниц</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="Pages" type="text">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" onclick="CreateA()">Добавить</button> <br><br>
+
+        </form>
+
+            <form id="B" style="display: none" class="needs-validation" >
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Авторы (например,
+                            П.П. Петров, И.И. Иванов, В.В. Васильев)</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="FIOB" type="text">
+                        </div>
+                    </div>
+                </li>
+                 <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Название книги</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="TitleB" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Город публикации</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="CityB" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Издательство</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="PublishingB" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Год издания</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="YearB" type="text">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div style="padding-right: 20px">
+                        <label class="form-label" style="text-align: justify">Количество страниц</label>
+                    </div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="PagesB" type="text">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" onclick="CreateB()">Добавить</button> <br><br>
+
+        </form>
+
+            <form id="C" style="display: none" class="needs-validation"  >
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Фамилия автора</label>
+                            <label class="form-label" style="text-align: justify">Автор (например, П.П. Петров)</label>
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="Surname" type="text">
+                                <input id="FIOC" type="text">
                             </div>
                         </div>
                     </li>
                      <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Инициалы автора</label>
+                            <label class="form-label" style="text-align: justify">Название статьи</label>
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="IO" type="text">
-                            </div>
-                        </div>
-                    </li>
-                     <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Название книги</label>
-                        </div>
-                        <div class="my-3">
-                            <div class="form-check">
-                                <input id="Title" type="text">
+                                <input id="TitleC" type="text">
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Город публикации</label>
+                            <label class="form-label" style="text-align: justify">Название журнала</label>
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="City" type="text">
+                                <input id="NameMagazineC" type="text">
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Издательство</label>
+                            <label class="form-label" style="text-align: justify">Номер журнала (например, № 4)</label>
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="Publishing" type="text">
+                                <input id="NumberMagazineC" type="text">
                             </div>
                         </div>
                     </li>
@@ -93,37 +220,281 @@
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="Year" type="text">
+                                <input id="YearC" type="text">
                             </div>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div style="padding-right: 20px">
-                            <label class="form-label" style="text-align: justify">Количество страниц</label>
+                            <label class="form-label" style="text-align: justify">Страницы статьи (например, 3-7)</label>
                         </div>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="Pages" type="text">
+                                <input id="PagesC" type="text">
                             </div>
                         </div>
                     </li>
                 </ul>
-                <button type="button" onclick="Generate()">Сгенереровать</button> <br><br>
-                <p style="color:green" id="Result"></p>
+                <button type="button" onclick="CreateC()">Добавить</button> <br><br>
+
+            </form>
+
+            <form id="D" style="display: none" class="needs-validation"  >
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Авторы (например,
+                            П.П. Петров, И.И. Иванов, В.В. Васильев)</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="FIOD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                     <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Название статьи</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="TitleD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Название журнала</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="NameMagazineD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Номер журнала (например, № 4)</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="NumberMagazineD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Год издания</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="YearD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Страницы статьи (например, 3-7)</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="PagesD" type="text">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" onclick="CreateD()">Добавить</button> <br><br>
+
+            </form>
+
+            <form id="E" style="display: none" class="needs-validation"  >
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Автор(-ы) (например,
+                            П.П. Петров, И.И. Иванов, В.В. Васильев)</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="FIOE" type="text">
+                            </div>
+                        </div>
+                    </li>
+                     <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Название ресурса</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="TitleE" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Режим доступа (ссылка)</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="LinkE" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div style="padding-right: 20px">
+                            <label class="form-label" style="text-align: justify">Дата доступа</label>
+                        </div>
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="DateE" type="text">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" onclick="CreateE()">Добавить</button> <br><br>
+
+            </form>
+
+            <form>
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Результат</span>
+                </h4>
+                <textarea id="Result" style="width: 100%; height: 300px; background-color: #F5F5F5" readonly></textarea>
+
             </form>
 
             <script>
-                function Generate()
+                n=1
+                function CreateA()
                 {
-                    var surname = document.getElementById("Surname").value;
-                    var io = document.getElementById("IO").value;
+                    var fio = document.getElementById("FIO").value;
+                    var io = fio.split('.')[0] + '.' + fio.split('.')[1] + '.';
+                    var f = fio.split('.')[2];
                     var title = document.getElementById("Title").value;
                     var city = document.getElementById("City").value;
                     var publishing = document.getElementById("Publishing").value;
                     var year = document.getElementById("Year").value;
                     var pages = document.getElementById("Pages").value;
+                    document.getElementById("Result").innerHTML += n + ". " + f + ", " + io + " " + title + " / " + fio
+                     + ". – " + city + " : " + publishing + ", " + year + ". – " + pages + " с." + "\n";
+                    n+=1;
+                }
 
-                    document.getElementById("Result").innerHTML = surname + ", " + io + " " + title + " / " + io + " " + surname + ". – " + city + " : " + publishing + ", " + year + ". – " + pages + " с.";
+                function CreateB()
+                {
+                    var fio = document.getElementById("FIOB").value;
+                    var io = fio.split('.')[0] + '.' + fio.split('.')[1] + '.';
+                    var f = fio.split('.')[2].split(',')[0];
+                    var title = document.getElementById("TitleB").value;
+                    var city = document.getElementById("CityB").value;
+                    var publishing = document.getElementById("PublishingB").value;
+                    var year = document.getElementById("YearB").value;
+                    var pages = document.getElementById("PagesB").value;
+
+                    document.getElementById("Result").innerHTML += n + ". " + f + ", " + io + " " + title + " / " + fio +
+                    ". – " + city + " : " + publishing + ", " + year + ". – " + pages + " с." + "\n";
+                    n+=1;
+                }
+
+                function CreateC()
+                {
+                    var fio = document.getElementById("FIOC").value;
+                    var io = fio.split('.')[0] + '.' + fio.split('.')[1] + '.';
+                    var f = fio.split('.')[2];
+                    var title = document.getElementById("TitleC").value;
+                    var nameMagazine = document.getElementById("NameMagazineC").value;
+                    var numberMagazine = document.getElementById("NumberMagazineC").value;
+                    var pages = document.getElementById("PagesC").value;
+                    var year = document.getElementById("YearC").value;
+
+                    document.getElementById("Result").innerHTML += n + ". "  + f + ", " + io + " " + title + " / " + fio
+                     + " // " + nameMagazine + ". – " + year + ". – " + numberMagazine + ". – С. " + pages + ".\n";
+                     n+=1
+                }
+
+                function CreateD()
+                {
+                    var fio = document.getElementById("FIOD").value;
+                    var io = fio.split('.')[0] + '.' + fio.split('.')[1] + '.';
+                    var f = fio.split('.')[2].split(',')[0];
+                    var title = document.getElementById("TitleD").value;
+                    var nameMagazine = document.getElementById("NameMagazineD").value;
+                    var numberMagazine = document.getElementById("NumberMagazineD").value;
+                    var pages = document.getElementById("PagesD").value;
+                    var year = document.getElementById("YearD").value;
+
+                    document.getElementById("Result").innerHTML += n + ". "  + f + ", " + io + " " + title + " / " + fio
+                     + " // " + nameMagazine + ". – " + year + ". – " + numberMagazine + ". – С. " + pages + ".\n";
+                     n+=1
+                }
+
+                function CreateE()
+                {
+                    var fio = document.getElementById("FIOE").value;
+                    var io = fio.split('.')[0] + '.' + fio.split('.')[1] + '.';
+                    try {
+                        var f = fio.split('.')[2].split(',')[0];
+                    } catch {
+                        var f = fio.split('.')[2];
+                    }
+
+                    var title = document.getElementById("TitleE").value;
+                    var link = document.getElementById("LinkE").value;
+                    var date = document.getElementById("DateE").value;
+
+                    document.getElementById("Result").innerHTML += n + ". "  + f + ", " + io + " " + title +
+                     "[Электронный ресурс] / " + fio  + ". – Режим доступа: " + link + ". – Дата доступа: " + date + ".\n";
+                     n+=1
+                }
+
+                function ShowA(x) {
+                    if (x.checked) {
+                        document.getElementById("A").style.display = "";
+                        document.getElementById("B").style.display = "none";
+                        document.getElementById("C").style.display = "none";
+                        document.getElementById("D").style.display = "none";
+                        document.getElementById("E").style.display = "none";
+                    }
+                }
+
+                function ShowB(x) {
+                    if (x.checked) {
+                        document.getElementById("A").style.display = "none";
+                        document.getElementById("B").style.display = "";
+                        document.getElementById("C").style.display = "none";
+                        document.getElementById("D").style.display = "none";
+                        document.getElementById("E").style.display = "none";
+                    }
+                }
+
+                function ShowC(x) {
+                    if (x.checked) {
+                        document.getElementById("A").style.display = "none";
+                        document.getElementById("B").style.display = "none";
+                        document.getElementById("C").style.display = "";
+                        document.getElementById("D").style.display = "none";
+                        document.getElementById("E").style.display = "none";
+                    }
+                }
+
+                function ShowD(x) {
+                    if (x.checked) {
+                        document.getElementById("A").style.display = "none";
+                        document.getElementById("B").style.display = "none";
+                        document.getElementById("C").style.display = "none";
+                        document.getElementById("D").style.display = "";
+                        document.getElementById("E").style.display = "none";
+                    }
+                }
+
+                function ShowE(x) {
+                    if (x.checked) {
+                        document.getElementById("A").style.display = "none";
+                        document.getElementById("B").style.display = "none";
+                        document.getElementById("C").style.display = "none";
+                        document.getElementById("D").style.display = "none";
+                        document.getElementById("E").style.display = "";
+                    }
                 }
             </script>
         </div>
