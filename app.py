@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 import json
-
-app = Flask(__name__)
+from db import app, db, Value
 
 
 def counter(file):
@@ -17,7 +16,7 @@ def counter(file):
         for v in value[1:]:
             c += 1
             names_list.append(f'{i}-{c}')
-    # print(names_list)
+    print(names_list)
     return names_list
 
 
@@ -47,18 +46,74 @@ def test():
         elif 498 <= sum <= 748:
             print(f'Вы набрали {sum} баллов. У Вас продуктивный уровень готовности к профессиональной самореализации')
         elif 749 <= sum:
-            print(f'Вы набрали {sum} баллов. У Вас рефлексивный (устойчивый) уровень готовности к профессиональной самореализации')
+            print(
+                f'Вы набрали {sum} баллов. У Вас рефлексивный (устойчивый) уровень готовности к профессиональной самореализации')
         return redirect('/')
     else:
         with open('static/question.json', encoding='utf-8') as f:
             questions_dict = json.load(f)
         return render_template('test.html', questions=questions_dict)
 
+
 @app.route('/biblio_list')
 def biblio_list():
-
     return render_template('bibliographic_list.html')
 
+
+@app.route('/inventory')
+def inventory():
+    values = db.session.query(Value)
+    return render_template('inventory.html', values=values)
+
+@app.route('/inventory/add', methods=['GET', 'POST'])
+def add_inventory():
+    if request.method == 'POST':
+        newValue= Value(
+            inventory_number=request.form['inventory_number'],
+            name=request.form['name'],
+            unit = request.form['unit'],
+            quantity = request.form['quantity'],
+            cost = request.form['cost'],
+            employee = request.form['employee'],
+            room = request.form['room'],
+            fin_account = request.form['fin_account'],
+            financial_source = request.form['financial_source'],
+
+        )
+        db.session.add(newValue)
+        db.session.commit()
+        return redirect(url_for('inventory'))
+    else:
+        return render_template('add_inventory.html')
+
+@app.route('/inventory/edit/<value_id>', methods=['GET', 'POST'])
+def editValue(value_id):
+    editedValue = db.session.query(Value).filter_by(id=value_id).one()
+    if request.method == 'POST':
+        editedValue.inventory_number = request.form['inventory_number']
+        editedValue.name = request.form['name']
+        editedValue.unit = request.form['unit']
+        editedValue.quantity = request.form['quantity']
+        editedValue.cost = request.form['cost']
+        editedValue.employee = request.form['employee']
+        editedValue.room = request.form['room']
+        editedValue.fin_account = request.form['fin_account']
+        editedValue.financial_source = request.form['financial_source']
+        db.session.add(editedValue)
+        db.session.commit()
+        return redirect(url_for('inventory'))
+    else:
+        return render_template('editValue.html', value=editedValue)
+
+@app.route('/inventory/delete/<value_id>', methods=['GET', 'POST'])
+def deleteValue(value_id):
+    deletedValue = db.session.query(Value).filter_by(id=value_id).one()
+    if request.method == 'POST':
+        db.session.delete(deletedValue)
+        db.session.commit()
+        return redirect(url_for('inventory'))
+    else:
+        return render_template('deleteValue.html', value=deletedValue)
 
 @app.route('/info')
 def info():
@@ -71,4 +126,8 @@ def contacts():
 
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+
     app.run(debug=True)
+

@@ -127,7 +127,7 @@
                             <label class="form-label" style="text-align: justify">{{ q }}</label>
                             </div>
                             <select class="form-select" name="{{ ind }}-{{ loop.index }}" required style="width: 128px; height: 40px">
-                                <option value="">Оцените...</option>
+                                <option value="">Выберите...</option>
                                 {% for i in range(question[0], -1, -1) %}
                                     <option value="{{ i }}">{{ i }}</option>
                                 {% endfor %}

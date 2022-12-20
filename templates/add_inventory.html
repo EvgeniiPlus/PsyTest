@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Добавить мат. ценность</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Добавить материальную ценность</h2>
+        <form method="post">
+            <input type="text" name="inventory_number" id="inventory_number" class="form-control"
+                   placeholder="Введите инвентарный номер"><br>
+            <input type="text" name="name" id="name" class="form-control"
+                   placeholder="Введите наименование"><br>
+            <input type="text" name="unit" id="unit" class="form-control"
+                   placeholder="Введите единицу измерения"><br>
+            <input type="text" name="quantity" id="quantity" class="form-control"
+                   placeholder="Введите количество"><br>
+            <input type="text" name="cost" id="cost" class="form-control"
+                   placeholder="Введите стоимость"><br>
+            <input type="text" name="employee" id="employee" class="form-control"
+                   placeholder="Введите материально ответственного"><br>
+            <input type="text" name="room" id="room" class="form-control"
+                   placeholder="Введите кабинет"><br>
+            <input type="text" name="fin_account" id="fin_account" class="form-control"
+                   placeholder="Введите счет"><br>
+            <input type="text" name="financial_source" id="financial_source" class="form-control"
+                   placeholder="Введите источник финансирования"><br>
+            <input type="text" name="created_on" id="created_on" class="form-control"
+                   placeholder="Введите дату создания записи"><br>
+            <input type="submit" class="btn btn-success" value="Добавить">
+            <a class="btn btn-secondary" href="/inventory"> Отмена </a>
+        </form>
+    </div>
+{% endblock %}

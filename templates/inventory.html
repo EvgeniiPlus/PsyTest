@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Инвентаризация</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Инвентаризация</h2>
+        <a class="me-3 btn btn-warning" href="/inventory/add">Добавить мат. ценность</a>
+
+    </div>
+    <div class="container">
+        <table style="border: 1px solid gray; width: 100%;">
+            <tr>
+                <th style="border: 1px solid gray">Инвентарный номер</th>
+                <th style="border: 1px solid gray">Наименование</th>
+                <th style="border: 1px solid gray">Единица измерения</th>
+                <th style="border: 1px solid gray">Количество</th>
+                <th style="border: 1px solid gray">Стоимость</th>
+                <th style="border: 1px solid gray">Мат. ответственный</th>
+                <th style="border: 1px solid gray">Кабинет</th>
+                <th style="border: 1px solid gray">Счет</th>
+                <th style="border: 1px solid gray">Источник финансировнаия</th>
+                <th style="border: 1px solid gray">Добавлено</th>
+            </tr>
+            {% for value in values %}
+                <tr>
+                    <td style="border: 1px solid gray">{{ value.inventory_number }}</td>
+                    <td style="border: 1px solid gray">{{ value.name }}</td>
+                    <td style="border: 1px solid gray">{{ value.unit }}</td>
+                    <td style="border: 1px solid gray">{{ value.quantity }}</td>
+                    <td style="border: 1px solid gray">{{ value.cost }}</td>
+                    <td style="border: 1px solid gray">{{ value.employee }}</td>
+                    <td style="border: 1px solid gray">{{ value.room }}</td>
+                    <td style="border: 1px solid gray">{{ value.fin_account }}</td>
+                    <td style="border: 1px solid gray">{{ value.financial_source }}</td>
+                    <td style="border: 1px solid gray">{{ value.created_on }}</td>
+                    <td style="border: 1px solid gray">
+                        <a href="{{ url_for('editValue', value_id = value.id) }}">Изменить</a>
+                        <a href="{{ url_for('deleteValue', value_id = value.id) }}">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

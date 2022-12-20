@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Удалить</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Добавить материальную ценность</h2>
+        <form method="post">
+            <input type="text" name="inventory_number" id="inventory_number" class="form-control"
+                   value="{{ value.inventory_number }}" <br>
+            <input type="text" name="name" id="name" class="form-control"
+                   value="{{ value.name }}"><br>
+            <input type="text" name="unit" id="unit" class="form-control"
+                   value="{{ value.unit }}"><br>
+            <input type="text" name="quantity" id="quantity" class="form-control"
+                   value="{{ value.quantity }}"><br>
+            <input type="text" name="cost" id="cost" class="form-control"
+                   value="{{ value.cost }}"><br>
+            <input type="text" name="employee" id="employee" class="form-control"
+                   value="{{ value.employee }}"><br>
+            <input type="text" name="room" id="room" class="form-control"
+                   value="{{ value.room }}"><br>
+            <input type="text" name="fin_account" id="fin_account" class="form-control"
+                   value="{{ value.fin_account }}"><br>
+            <input type="text" name="financial_source" id="financial_source" class="form-control"
+                   value="{{ value.financial_source }}"><br>
+            <input type="submit" class="btn btn-success" value="Обновить">
+            <a class="btn btn-secondary" href="/inventory"> Отмена </a>
+        </form>
+    </div>
+{% endblock %}
